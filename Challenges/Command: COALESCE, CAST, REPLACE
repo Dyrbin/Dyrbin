@@ -3,4 +3,12 @@ SELECT
 flight_no,
 CAST(REPLACE(flight_no, 'PG', '') AS BIGINT)
 
-FROM flights
+FROM flights;
+
+SELECT
+rental_date,
+--CAST converts return_date column from a timestamp to text
+--COALESE replaces all null values in return_date column with 'not returned'
+COALESCE(CAST(return_date AS VARCHAR), 'not returned')
+FROM rental
+ORDER BY rental_date DESC
