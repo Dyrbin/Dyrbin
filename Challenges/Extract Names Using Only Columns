@@ -1,0 +1,6 @@
+--Challenge: Extract Last Name, First Name using only columns: email, last_name
+SELECT
+last_name || ', ' || LEFT (email, POSITION ('.' IN email) -1) AS lastname_firstname
+--Extract first name from email address: LEFT (email, POSITION ('.' IN email) -1)
+
+FROM customer
