@@ -1,0 +1,12 @@
+1) Extract Files
+2) Right Click > Properties (flight_database.txt)
+3) Paste file path in notepad and update from A to B as shown below:
+4) Right click on any database in PGadmin and select PSQL Tool
+5) Past path into command line
+6) Right click on database and select "Refresh"
+
+A)
+C:\Users\poetr\Desktop\SQL\flight_database
+
+B)
+\i 'C:/Users/poetr/Desktop/SQL/flight_database/flight_database.sql'
