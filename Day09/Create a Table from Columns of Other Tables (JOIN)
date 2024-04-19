@@ -1,0 +1,13 @@
+--Create a new table with select columns from customer table 
+CREATE TABLE customer_address
+AS
+SELECT first_name, last_name, email, address, city
+FROM customer c
+--Join columns in table
+LEFT JOIN address a
+ON c.address_id = a.address_id
+--Join columns in table
+LEFT JOIN city ci
+ON ci.city_id = a.city_id
+
+SELECT * FROM customer_address
