@@ -1,0 +1,29 @@
+--Challenge 1: Month with highest total payment amount
+SELECT
+EXTRACT (month from payment_date) AS month,
+--Count # of sales for each month
+COUNT(*) AS number_of_sales,
+--Sum amount of sales for each month
+SUM(amount) AS monthly_sales
+
+FROM payment
+GROUP BY month
+ORDER BY number_of_sales DESC;
+
+--Challenge 2: Day of week with highest total payment amount
+SELECT
+EXTRACT (dow from payment_date) AS day_of_week,
+SUM(amount) AS total_payment_amount
+
+FROM payment
+GROUP BY day_of_week
+ORDER BY total_payment_amount DESC;
+
+--Challenge 3: Highest amount a customer has spent in a week
+SELECT
+customer_id,
+EXTRACT (week from payment_date) AS week,
+SUM(amount) as total_payment_amount
+FROM payment
+GROUP BY week, customer_id
+ORDER BY total_payment_amount DESC;
