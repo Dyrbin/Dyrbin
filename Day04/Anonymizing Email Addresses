@@ -1,0 +1,5 @@
+--Challenge: Anonymize Email Addresses
+SELECT
+LEFT(email,1) || '***' || '@sakilacustomer.org' AS AnonymizedEmail
+
+FROM customer
