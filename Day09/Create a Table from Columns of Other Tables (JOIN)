@@ -11,3 +11,32 @@ LEFT JOIN city ci
 ON ci.city_id = a.city_id
 
 SELECT * FROM customer_address
+
+--Create a new table with select columns from customer table 
+CREATE TABLE customer_address
+AS
+SELECT first_name, last_name, email, address, city
+FROM customer c
+--Join columns in table
+LEFT JOIN address a
+ON c.address_id = a.address_id
+--Join columns in table
+LEFT JOIN city ci
+ON ci.city_id = a.city_id
+
+SELECT * FROM customer_address
+
+
+--Create a table with first & last name of a customer and total spendings done in payments table
+CREATE TABLE customer_spendings
+AS
+SELECT
+first_name ||''|| last_name AS name,
+SUM(amount) AS total_amount
+FROM customer c
+LEFT JOIN payment p
+ON c.customer_id=p.customer_id
+GROUP BY first_name ||''|| last_name
+
+SELECT*
+FROM customer_spendings
