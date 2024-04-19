@@ -1,0 +1,16 @@
+--Challenge1: Find aircraft that has not been flown
+SELECT *
+FROM aircrafts_data a
+LEFT JOIN flights f
+ON a.aircraft_code = f.aircraft_code
+WHERE f.flight_id IS null;
+
+--Challenge2: Find most popular purchased seat type
+SELECT s.seat_no,
+COUNT(*)
+FROM seats s
+LEFT JOIN boarding_passes bp
+ON s.seat_no = bp.seat_no
+GROUP BY s.seat_no
+ORDER BY COUNT(*) DESC
+--WHERE s.seat_no IS null
