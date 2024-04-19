@@ -1,0 +1,18 @@
+--See everything from payment table and filter on first name and last name
+/*
+SELECT payment.*,
+first_name,
+last_name
+FROM payment
+INNER JOIN customer
+ON payment.customer_id = customer.customer_id
+*/
+
+--Challenge: Inner Join 2 tables to find number of fare_conditions purchased
+SELECT
+fare_conditions,
+COUNT (*)
+FROM seats
+INNER JOIN boarding_passes
+ON seats.seat_no = boarding_passes.seat_no
+GROUP BY fare_conditions
