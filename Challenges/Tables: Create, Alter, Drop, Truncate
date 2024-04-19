@@ -1,0 +1,25 @@
+--Create Table
+CREATE TABLE emp_table
+(
+
+	emp_id SERIAL PRIMARY KEY,
+	emp_name TEXT
+)
+
+--SELECT Table
+SELECT*
+FROM emp_table
+
+--DROP Table
+DROP TABLE emp_table
+
+--Insert Rows
+INSERT INTO emp_table
+VALUES
+(1,'Frank'),
+(2,'Maria'),
+(3,'Meow'),
+(4,'PisayShat')
+
+--TRUNCATE Table
+TRUNCATE TABLE emp_table
