@@ -1,0 +1,17 @@
+--See everything from payment table and filter on first name and last name
+/*
+SELECT payment.*,
+first_name,
+last_name
+FROM payment
+INNER JOIN customer
+ON payment.customer_id = customer.customer_id
+*/
+
+--Challenge: Full Outer Join 2 tables to find number of purchased tickets with no boarding pass 
+SELECT
+COUNT(*)
+FROM boarding_passes b
+FULL OUTER JOIN tickets t
+ON b.ticket_no = t.ticket_no
+WHERE b IS null
