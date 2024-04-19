@@ -1,0 +1,9 @@
+SELECT
+actual_departure - scheduled_departure,
+CASE
+WHEN actual_departure is null THEN 'No Departure Time'
+WHEN actual_departure - scheduled_departure < '00:05:00' THEN 'On Time'
+WHEN actual_departure - scheduled_departure < '00:01:00' THEN 'A Little Bit Late'
+ELSE 'Very Late'
+END
+FROM flights
