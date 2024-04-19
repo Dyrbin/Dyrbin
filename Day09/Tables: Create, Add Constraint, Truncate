@@ -1,0 +1,30 @@
+--Create a table named 'songs' with following columns: song_id, song_name, genre, price, release_date
+--During creation add the DEFAULT 'Not defined' to the genre
+--Add the not null constraint to song_name column
+--Add constraint with default name to ensure the rpice is at least 1.99
+--Add constraint date_check to ensure the release date is between today and 01-01-1950
+--Insert rows: 4, SQL song, Not defined, .99, 2022-01-07
+--Modify constraint to be able to have .99 allowed as lowest possible price
+--Try again to insert row
+
+CREATE TABLE songs (
+song_id SERIAL PRIMARY KEY,
+song_name VARCHAR(30) NOT NULL,
+genre VARCHAR(30) DEFAULT 'Not defined',
+price NUMERIC(4,2) CHECK(price>=1.99),
+release_date DATE CONSTRAINT date_check CHECK(release_date BETWEEN '01-01-1950' AND CURRENT_DATE))
+
+--TRUNCATE TABLE songs
+
+INSERT INTO songs (song_name, price, release_date)
+VALUES ('SQL song', 0.99,'01-01-2022')
+
+--Alter constraints by removing and then adding a new one
+ALTER TABLE songs
+DROP CONSTRAINT songs_price_check;
+
+ALTER TABLE songs
+ADD CONSTRAINT songs_price_check CHECK(price>=0.99)
+
+SELECT*
+FROM songs
