@@ -1,0 +1,28 @@
+--Group customers by ID and sum their total payments
+SELECT
+customer_id,
+SUM (amount),
+MAX (amount),
+MIN (amount)
+FROM payment
+GROUP BY customer_id
+ORDER BY customer_id;
+
+SELECT customer_id FROM payment;
+
+--Challenge 1: Sum total number of sales and total cost of sales between 2 employees
+SELECT staff_id,
+COUNT (payment_id) AS Sales_Number, --Sales (#)
+SUM (amount) AS Sales$ --Sales ($)
+FROM payment
+GROUP BY staff_id
+ORDER BY staff_id;
+
+--Challenge 2: Sum total number of sales and total cost of sales between 2 employees (where amount != 0)
+SELECT staff_id,
+COUNT (payment_id) AS Sales_Number, --Sales (#)
+SUM (amount) AS Sales$ --Sales ($)
+FROM payment
+WHERE (amount != 0)
+GROUP BY staff_id
+ORDER BY staff_id;
