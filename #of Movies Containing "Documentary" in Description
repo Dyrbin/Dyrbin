@@ -1,0 +1,7 @@
+--Number of movies containing "Documentary" in description
+SELECT description FROM film
+WHERE description LIKE '%Documentary%' OR description LIKE '%documentary%' OR description LIKE '%DOCUMENTARY%';
+
+SELECT first_name, last_name FROM customer
+WHERE first_name LIKE '___'
+AND (last_name LIKE '%X' OR last_name LIKE '%Y')
