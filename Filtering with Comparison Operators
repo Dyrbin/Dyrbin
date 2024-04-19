@@ -1,0 +1,17 @@
+--Number of rentals not yet returned
+SELECT COUNT(*)
+FROM
+rental
+
+WHERE
+return_date is null;
+
+--Number of payments <= $2
+SELECT
+payment_id, amount
+FROM
+payment
+
+WHERE amount <= 2
+ORDER BY
+amount DESC;
