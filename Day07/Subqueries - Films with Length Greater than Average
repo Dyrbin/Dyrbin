@@ -1,0 +1,4 @@
+--Challenge1: Find all films who's length is greater than average length
+SELECT*
+FROM film
+WHERE length > (SELECT AVG(length) FROM film)
