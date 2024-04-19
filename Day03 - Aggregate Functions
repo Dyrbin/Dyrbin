@@ -1,0 +1,16 @@
+--Number of movies containing 'Saga' in description and where title either starts with A or ends with R 
+SELECT COUNT (*) --title, description
+FROM film
+WHERE description LIKE '%Saga%'
+AND (title LIKE 'A%' OR title LIKE '%R');
+
+--List of customers where first name contains ER and has A as second letter
+SELECT first_name, last_name FROM customer
+WHERE first_name LIKE '%ER%' AND first_name LIKE '_A%'
+ORDER BY last_name DESC;
+
+--Number of payments were amount is either zero or is between 3.99 and 7.99 and in same time occurred on 2020-05-01
+SELECT COUNT(*) FROM payment
+WHERE amount = 0
+OR (amount BETWEEN 3.99 AND 7.99
+	AND payment_date BETWEEN '2020-05-01' AND '2020-05-01 23:59')
