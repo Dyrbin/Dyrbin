@@ -1,0 +1,27 @@
+--Challenge 1: Format Time
+SELECT
+SUM(amount) AS total_payment,
+TO_CHAR (payment_date, 'Dy, DD/MM/YYYY') AS day
+
+FROM payment
+GROUP BY day
+ORDER BY total_payment DESC;
+
+
+--Challenge 2:
+SELECT
+SUM(amount) AS total_payment,
+TO_CHAR (payment_date, 'Mon, YYYY') AS mon_year
+
+FROM payment
+GROUP BY mon_year
+ORDER BY total_payment DESC;
+
+--Challenge 3:
+SELECT
+SUM(amount) AS total_payment,
+TO_CHAR (payment_date, 'Dy, HH:MI') AS day_hour
+
+FROM payment
+GROUP BY day_hour
+ORDER BY total_payment DESC;
