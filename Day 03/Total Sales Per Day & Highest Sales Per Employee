@@ -1,0 +1,7 @@
+--Challenge 1: Total sales per day and highest sales per employee
+SELECT staff_id, DATE(payment_date),
+SUM (amount), --Total sales per day for each employee
+COUNT (*) --number of payments on each date
+FROM payment
+GROUP BY staff_id, DATE(payment_date)
+ORDER BY SUM (amount) DESC
