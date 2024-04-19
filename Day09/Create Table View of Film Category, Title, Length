@@ -1,0 +1,16 @@
+--Create a view with film category, title, and length 
+CREATE VIEW films_category
+AS
+SELECT title, name, length
+FROM film f
+--Join columns in table
+LEFT JOIN film_category fc
+ON f.film_id = fc.film_id
+--Join columns in table
+LEFT JOIN category c
+ON c.category_id = fc.category_id
+WHERE name IN ('Action', 'Comedy')
+ORDER BY length DESC
+
+SELECT *
+FROM films_category
